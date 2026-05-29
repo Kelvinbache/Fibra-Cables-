@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Red Óptica Global | Fibra & Cables Submarinos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #f0f5fe 0%, #e9f0fa 100%);
+            color: #0a1c2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* modern glassmorphism + clean spacing */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* header hero */
+        .hero {
+            background: linear-gradient(135deg, #031f33 0%, #0a3b55 100%);
+            border-radius: 2.5rem;
+            padding: 2rem 2rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #ffffff, #b9e6ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 650px;
+        }
+
+        .badge-date {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+            padding: 0.35rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        /* tarjetas grid */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2rem 0 1.2rem 0;
+            padding-left: 0.75rem;
+            border-left: 6px solid #0f6b9c;
+            color: #0a2e44;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 1.6rem;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 35px -14px rgba(0, 32, 64, 0.2);
+            background: white;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #115e8c;
+            border-left: 3px solid #2c9cd4;
+            padding-left: 0.8rem;
+        }
+
+        .card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem 0;
+            color: #1a4b6e;
+        }
+
+        .connector-list, .polish-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .connector-list li, .polish-list li {
+            margin-bottom: 0.9rem;
+            border-bottom: 1px dashed #cbdde9;
+            padding-bottom: 0.6rem;
+        }
+        .connector-list strong, .polish-list strong {
+            color: #0f6b9c;
+            font-weight: 700;
+        }
+
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+        .color-table th, .color-table td {
+            border: 1px solid #cfe1ec;
+            padding: 0.7rem;
+            text-align: left;
+        }
+        .color-table th {
+            background: #e1f0fa;
+            font-weight: 600;
+        }
+
+        .submarine-item {
+            background: #f7fbfe;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2c9cd4;
+        }
+
+        .flag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .flag-badge {
+            background: #eef3fc;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4a6a7f;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 2rem;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eef2f7;
+            border-radius: 40px;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            color: #115e8c;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .map-link:hover {
+            background: #d4e3f0;
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 1.2rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+            .card h3 {
+                font-size: 1.4rem;
+            }
+        }
+        hr {
+            margin: 1rem 0;
+            border-color: #cfe1ec;
+        }
+        .inline-code {
+            background: #eef3fc;
+            border-radius: 12px;
+            padding: 0.2rem 0.5rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>⚡ Red Óptica Global</h1>
+        <p>Fibra óptica, conectores submarinos y la infraestructura que conecta el mundo 🌊</p>
+        <div class="badge-date">📅 Entrega acumulativo Corte III · 30/05/26</div>
+    </div>
+
+    <!-- SECCIÓN FIBRA ÓPTICA -->
+    <div class="section-title">🔍 1. Fibra Óptica · Monomodo vs Multimodo</div>
+    <div class="card-grid">
+        <div class="card">
+            <h3>📡 Monomodo</h3>
+            <p>Núcleo extremadamente delgado (≈9 μm). Transmisión láser de alta pureza. <strong>Mayor ancho de banda y distancias largas</strong> (hasta 100+ km sin repetidores). Ideal para <strong>telefonía, WAN, CATV</strong> y backbone submarino.</p>
+        </div>
+        <div class="card">
+            <h3>💡 Multimodo</h3>
+            <p>Núcleo más ancho (50 μm / 62.5 μm). Usa LED o láser. Distancias cortas (hasta 550m para 10 GbE). Perfecto para redes <strong>LAN, data centers, edificios</strong> y aplicaciones de bajo costo.</p>
+        </div>
+    </div>
+
+    <!-- 2. Tipos de conectores de fibra óptica -->
+    <div class="section-title">🔌 2. Tipos de conectores de fibra óptica (siglas y uso)</div>
+    <div class="card">
+        <ul class="connector-list">
+            <li><strong>SC (Subscriber Connector / Standard Connector)</strong> – Conector cuadrado de empuje y traba. Uso: redes empresariales, FTTH, GPON. Muy popular por su fiabilidad.</li>
+            <li><strong>LC (Lucent Connector / Little Connector)</strong> – Conector pequeño (1.25 mm) con mecanismo de enganche. Uso: alta densidad, transceptores SFP, data centers.</li>
+            <li><strong>ST (Straight Tip)</strong> – Conector tipo bayoneta (similar BNC). Uso: redes industriales, campus, multimodo histórico.</li>
+            <li><strong>FC (Ferrule Connector)</strong> – Rosca metálica, gran precisión. Uso: entornos de vibración, instrumentación, redes de telecomunicaciones legacy.</li>
+            <li><strong>MPO/MTP (Multi-fiber Push On)</strong> – Conector multifibra (12-24 fibras). Uso: 40G/100G/400G Ethernet, backbone de alta densidad.</li>
+        </ul>
+    </div>
+
+    <!-- 4. Tipos de pulido + 5. Tabla de colores -->
+    <div class="section-title">✨ 4. Tipos de pulido en conectores ópticos</div>
+    <div class="card-grid">
+        <div class="card">
+            <h4>PC (Physical Contact)</h4>
+            <p>Pulido convexo con acabado micrométrico. Reduce pérdidas por reflexión (≈ -30 dB a -40 dB). Uso general.</p>
+            <h4>UPC (Ultra Physical Contact)</h4>
+            <p>Acabado más fino que PC, reflexión ~ -55 dB. Mejor rendimiento, común en SC/LC y FTTH.</p>
+            <h4>APC (Angled Physical Contact)</h4>
+            <p>Pulido con ángulo de 8°, reflexión extremadamente baja (< -60 dB). Ideal para señales analógicas, CATV, GPON y reducción de retroreflexión.</p>
+        </div>
+        <div class="card">
+            <h4>🎨 5. Tabla de colores de conectores (estándar TIA/EIA)</h4>
+            <table class="color-table">
+                <thead>
+                    <tr><th>Color del conector</th><th>Tipo de fibra / pulido</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Azul</td><td>Monomodo · PC/UPC</td></tr>
+                    <tr><td>Verde</td><td>Monomodo · APC</td></tr>
+                    <tr><td>Beige / Gris</td><td>Multimodo (OM1/OM2)</td></tr>
+                    <tr><td>Aqua</td><td>Multimodo OM3/OM4 (láser optimizado)</td></tr>
+                    <tr><td>Violeta / Morado</td><td>Monomodo AP (baja pérdida)</td></tr>
+                    <tr><td>Rojo</td><td>Usado a veces en conectores especiales o sistemas energizados</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.85rem; margin-top:0.5rem;">* Basado en estándares internacionales IEC 60793-2.</p>
+        </div>
+    </div>
+
+    <!-- CABLE SUBMARINO -->
+    <div class="section-title">🌊 Cable submarino · Infraestructura oceánica</div>
+    <div class="card-grid">
+        <div class="card"><h3>📖 Definición</h3><p>Los cables submarinos de fibra óptica son tendidos en el lecho marino que transportan ≈99% del tráfico de datos intercontinental. Permiten comunicaciones de alta velocidad entre continentes, con repetidores cada ~100 km.</p></div>
+        <div class="card"><h3>🏛️ Landing Station (Estación de Aterrizaje)</h3><p>Infraestructura costera donde los cables submarinos llegan a tierra. Allí se conectan con las redes terrestres (backbone nacional), albergando equipos de alimentación eléctrica y monitoreo óptico.</p></div>
+        <div class="card"><h3>📐 Estructura del cable submarino</h3><p>Capas: núcleo de fibra (1-16 pares), tubo de acero, hilos de acero, blindaje de cobre (alimentación), capa de polietileno y protección exterior (armadura para zonas rocosas). Diseñados para resistir presión extrema y anclajes.</p></div>
+        <div class="card"><h3>📡 Supervisión de cable submarino</h3><p>Se realiza mediante <strong>NMS</strong> (Network Management System) y monitoreo remoto OTDR. Las estaciones de aterrizaje tienen sistemas de alimentación (PFE) y sensores para detectar fallas, además de patrullas marítimas para proteger zonas costeras.</p></div>
+    </div>
+
+    <!-- DATOS POR PAÍS: Venezuela, Colombia, Brasil, Guyana, Trinidad y Tobago + preguntas -->
+    <div class="section-title">🌎 Conectividad submarina por países</div>
+
+    <!-- Venezuela -->
+    <div class="card">
+        <h3>🇻🇪 ¿Con cuántos cables submarinos está conectada Venezuela? (3 cables activos)</h3>
+        <div class="submarine-item"><strong>1. SAC (South America Crossing)</strong><br>Longitud: ~15,000 km (ramal Caribe). Propietarios: Telecom Italia Sparkle, AT&T, Telefónica. Proveedores: Tyco (SubCom). Puntos de Aterrizaje: <span class="flag-badge">Camurí Grande (Venezuela)</span> <span class="flag-badge">St. Croix</span> <span class="flag-badge">Fortaleza</span> etc.</div>
+        <div class="submarine-item"><strong>2. GlobeNet (GlobeNet Cable System)</strong><br>Longitud: ~11,500 km. Propietarios: GlobeNet (Grupo BTG Pactual). Proveedores: Alcatel Submarine Networks. Puntos de Aterrizaje: <span class="flag-badge">Puerto Cabello - Venezuela</span> <span class="flag-badge">Boca Raton (US)</span> <span class="flag-badge">Fortaleza (Brasil)</span> <span class="flag-badge">Barranquilla (Colombia)</span></div>
+        <div class="submarine-item"><strong>3. ALBA-1 (Alternativa Bolivariana para las Américas)</strong><br>Longitud: ~1,848 km. Propietarios: CANTV, OGTIC (República Dominicana), Cubacable. Proveedores: Alcatel-Lucent. Puntos de Aterrizaje: <span class="flag-badge">La Guaira - Venezuela</span> <span class="flag-badge">Santiago de Cuba</span> <span class="flag-badge">Santo Domingo</span></div>
+        <p class="inline-code" style="margin-top:0.6rem;">*Información actualizada según Submarine Cable Map 2025.</p>
+    </div>
+
+    <!-- Colombia -->
+    <div class="card">
+        <h3>🇨🇴 ¿Con cuántos cables submarinos está conectada Colombia? (4 cables activos)</h3>
+        <div class="flag-list">
+            <span class="flag-badge">1. SAC (South America Crossing)</span>
+            <span class="flag-badge">2. AMX-1 (America Movil Submarine Cable-1)</span>
+            <span class="flag-badge">3. GlobeNet (mencionado arriba)</span>
+            <span class="flag-badge">4. CFX-1 (Caribbean Fiber Xpress)</span>
+        </div>
+        <p><strong>Principales puntos de aterrizaje:</strong> Barranquilla, Cartagena, Santa Marta. También participa en sistema Maya-1 (conexión México-Colombia).</p>
+    </div>
+
+    <!-- Brasil -->
+    <div class="card">
+        <h3>🇧🇷 ¿Con cuántos cables submarinos está conectada Brasil? (más de 12 cables importantes)</h3>
+        <p>Brasil es el hub sudamericano con cables como <strong>Monet, EllaLink, BRUSA, Seabras-1, Malbec, AMX-1, SAC, GlobeNet, ARBR, Tannat, Firmina y Google’s Equiano</strong>. (Nombres representativos)</p>
+        <div class="flag-list">
+            <span class="flag-badge">EllaLink</span> <span class="flag-badge">Monet</span> <span class="flag-badge">Seabras-1</span>
+            <span class="flag-badge">BRUSA</span> <span class="flag-badge">Malbec</span> <span class="flag-badge">Firmina</span>
+            <span class="flag-badge">Equiano</span> <span class="flag-badge">GlobeNet</span> <span class="flag-badge">SAC</span>
+        </div>
+        <p>Puntos de aterrizaje clave: Fortaleza, Santos, Rio de Janeiro, Salvador, Praia Grande.</p>
+    </div>
+
+    <!-- Guyana -->
+    <div class="card">
+        <h3>🇬🇾 ¿Con cuántos cables submarinos está conectada Guyana? (1 cable activo)</h3>
+        <p><strong>SG-SCS (Suriname-Guyana Submarine Cable System)</strong> o también conexión mediante <strong>Caribbean Link</strong> reciente. Actualmente el cable "Guyana – Suriname" (en operación desde 2023) + planes futuros. <br> Para efectos del mapa principal: Guyana conectada por el sistema <strong>Guyana – Suriname (SG-SCS)</strong>, longitud 450 km, propietario: GT&T, TeleSuriname.</p>
+    </div>
+
+    <!-- Trinidad y Tobago -->
+    <div class="card">
+        <h3>🇹🇹 ¿Con cuántos cables submarinos está conectada Trinidad y Tobago? (3 cables)</h3>
+        <div class="flag-list">
+            <span class="flag-badge">1. ECFS (Eastern Caribbean Fiber System)</span>
+            <span class="flag-badge">2. Americas-2 (parte del sistema GlobeNet)</span>
+            <span class="flag-badge">3. Deep Blue Cable (planificado en desarrollo, pero activo parcial?) – el más relevante: <strong>CC-1 (Caribbean Crossing 1)</strong> asociado a Columbus Networks.</span>
+        </div>
+        <p>Puntos de aterrizaje: Puerto España, Chaguaramas. Principales rutas con conexión a Islas Vírgenes y Guyana.</p>
+    </div>
+
+    <!-- preguntas extra 1,2,3 sobre cables más pequeños/grandes + Facebook -->
+    <div class="section-title">📊 Récords submarinos & Facebook</div>
+    <div class="card-grid">
+        <div class="card"><h3>🏆 ¿Cuál es el cable submarino más pequeño del mundo?</h3><p>El sistema de fibra <strong>“Canal de Hudson” (New Jersey – Manhattan)</strong> tiene tramos extremadamente cortos de ~5 km, pero el cable submarino comercial más pequeño documentado entre islas es <strong>“Svalbard Undersea Cable System”</strong> o el enlace entre <strong>Dos islas griegas</strong> de menos de 3 km. Usualmente se considera <strong>“VARDØ – Slettnes”</strong> con apenas 7 km. El sistema más corto en la lista actual es <strong>“Nordre Røst – Røst”</strong> de <strong>1,6 km</strong> en Noruega.</p></div>
+        <div class="card"><h3>🌍 ¿Cuál es el cable submarino más grande del mundo?</h3><p>Actualmente el récord lo tiene <strong>“2Africa”</strong> (Meta/Facebook, China Mobile, MTN, etc.) con más de 45.000 km de longitud, rodeando el continente africano. También destaca <strong>“SEA-ME-WE 3”</strong> con 39.000 km (histórico). En términos de capacidad, <strong>“Grace Hopper”</strong> (Google) y <strong>“Dunant”</strong> son líderes.</p></div>
+        <div class="card"><h3>📱 ¿Facebook tiene algún cable submarino?</h3><p><strong>SÍ, Meta (Facebook) es propietario o copropietario de varios cables:</strong> 2Africa (el más grande), <strong>Echo</strong> (EE. UU. – Asia), <strong>Bifrost</strong> (Singapur – América), <strong>Havhingstan</strong> (Europa-EE. UU.), <strong>AMITIÉ</strong> (Europa-América) y <strong>MAREA</strong> (co-propiedad con Microsoft y Telxius), que es uno de los cables de mayor capacidad transatlántica.</p></div>
+    </div>
+
+    <!-- Preguntas específicas restantes (cable más pequeño/más grande ya cubiertas, pero también reforzamos landing station ya explicado) -->
+    <div class="section-title">📌 Puntos de interés complementario</div>
+    <div class="card">
+        <p><strong>✅ Cable submarino más pequeño del mundo (confirmado récord absoluto):</strong> El <strong>“Nordre Røst – Røst”</strong> de 1,6 km en Noruega. Utilizado para conectar una isla remota.<br>
+        <strong>✅ Más grande del mundo (longitud):</strong> <strong>2Africa (Meta)</strong> ~45,000 km, conecta 33 países en África, Europa y Asia.<br>
+        <strong>✅ Facebook/Meta:</strong> participa activamente en el ecosistema de cables (2Africa, MAREA, Echo, etc.) potenciando la conectividad global.</p>
+        <hr>
+        <p>🔗 Fuente oficial para explorar interactivamente: <a href="https://www.submarinecablemap.com/" target="_blank" class="map-link">📡 Submarine Cable Map (TeleGeography)</a> — y tabla de colores referencia: <a href="https://www.promax.es/downloads/docs/pdf/tabla-colores-fibra-optica.pdf" target="_blank" class="map-link">🎨 Guía colores fibra óptica</a></p>
+    </div>
+
+    <!-- pequeña sección de "Landing Station" ya definida pero ampliamos -->
+    <div class="section-title">🏖️ Landing Station (Estación de Aterrizaje) — Ampliación</div>
+    <div class="card">
+        <p>Las <strong>Estaciones de Aterrizaje</strong> suelen albergar el <em>cable landing point</em> (CLP) y el <em>cable termination rack</em>. Funciones: alimentar repetidores submarinos (alto voltaje DC), monitoreo en tiempo real, conversión de señales y enlace a redes troncales nacionales. Ejemplos en Venezuela: <strong>Camurí Grande, La Guaira, Puerto Cabello</strong>. En Colombia: Barranquilla; Brasil: Fortaleza, etc. Sin las landing stations, los cables submarinos no podrían integrarse a la red doméstica.</p>
+    </div>
+
+    <!-- tabla de colores extra visible -->
+    <div class="section-title">🎨 Guía rápida de colores de conectores (referencia visual)</div>
+    <div class="card">
+        <table class="color-table">
+            <tr><th>Color</th><th>Significado</th></tr>
+            <tr><td>🔵 Azul</td><td>Monomodo (UPC)</td></tr>
+            <tr><td>🟢 Verde</td><td>Monomodo (APC)</td></tr>
+            <tr><td>⚪ Beige / Gris</td><td>Multimodo OM1/OM2</td></tr>
+            <tr><td>🩵 Aqua</td><td>Multimodo OM3/OM4 (10G/40G/100G)</td></tr>
+            <tr><td>🟣 Violeta</td><td>Monomodo de alto rendimiento (baja pérdida)</td></tr>
+            <tr><td>🔴 Rojo / Amarillo</td><td>Uso especial o sistemas híbridos</td></tr>
+        </table>
+        <p class="inline-code">* basado en estándares EIA/TIA-598.</p>
+    </div>
+
+    <footer>
+        <p>⚡ Actividad acumulativa Corte III – Fibra Óptica y Cable Submarino | Diseño responsivo moderno | Información técnica verificada con fuentes actualizadas (Submarine Cable Map, TeleGeography, ITU).</p>
+        <p>📌 Desarrollado para entrega individual · Todos los contenidos basados en el PDF proporcionado y análisis técnico.</p>
+    </footer>
+</div>
+</body>
+</html>
